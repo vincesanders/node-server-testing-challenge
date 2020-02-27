@@ -4,17 +4,18 @@
   "description": "Node Server Testing Challenge",
   "main": "server.js",
   "scripts": {
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "start": "node index.js",
+    "server": "nodemon index.js"
   },
   "jest": {
     "testEnvironment": "node"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LambdaSchool/node-server-testing.git"
+    "url": "https://github.com/vincesanders/node-server-testing.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Vincent Sanders <vincesanders@hotmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/LambdaSchool/node-server-testing/issues"
@@ -22,9 +23,16 @@
   "homepage": "https://github.com/LambdaSchool/node-server-testing#readme",
   "devDependencies": {
     "jest": "^24.9.0",
+    "nodemon": "^2.0.2",
     "supertest": "^4.0.2"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "bcrypt": "^4.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.21.3",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.20.10",
+    "sqlite3": "^4.1.1"
   }
 }
