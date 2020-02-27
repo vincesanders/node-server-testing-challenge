@@ -67,6 +67,5 @@ describe('User router', function() {
                 }
             });
         });
-
     });
 });

@@ -8,22 +8,6 @@ describe('Auth router', function() {
 
     describe('POST /api/auth/', () => {
         test('/register should return 201 with user and token', async () => {
-            //when you run this test make sure to create a new username everytime
-            //AND change that on the expected string on username
-            // beforeAll((done) => {
-            //     res = request(server)
-            //         .post('/api/auth/register')
-            //         .send({
-            //             username: 'testuser',
-            //             password: 'testuser',
-            //             department: 'hr'
-            //         })
-            //         .end((err, res) => {
-            //             token = res.body.token; // save the token!
-            //             id = res.body.user.id;
-            //             done();
-            //     });
-            // });
             const username = 'testuserauth';
             const res = await request(server)
                 .post('/api/auth/register')
