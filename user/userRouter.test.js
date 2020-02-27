@@ -37,4 +37,36 @@ describe('User router', function() {
             });
         });
     });
+
+    describe('DELETE /:id', () => {
+        //register a new user
+        beforeAll((done) => {
+            request(server)
+                .post('/api/auth/register')
+                .send({
+                    username: 'testuser',
+                    password: 'testuser',
+                    department: 'hr'
+                })
+                .end((err, res) => {
+                    token = res.body.token; // save the token!
+                    id = res.body.user.id;
+                    done();
+            });
+        });
+
+        test('should delete and return the user and status 200', async () => {
+            const res = await request(server).delete(`/api/users/${id}`).set('Authorization', token);
+            expect(res.status).toBe(200);
+            expect(res.body).toMatchObject({
+                removed: {
+                    id: expect.any(Number),
+                    username: expect.stringMatching('testuser'),
+                    password: expect.any(String),
+                    department: expect.stringMatching('hr')
+                }
+            });
+        });
+
+    });
 });

@@ -4,7 +4,8 @@ module.exports = {
     insert,
     get,
     getBy,
-    getById
+    getById,
+    remove
 };
 
 async function insert(user) {
@@ -22,4 +23,12 @@ function getBy(filter) {
 
 function getById(id) {
     return db('user').where({ id }).first();
+}
+
+function remove(id) {
+    return getById(id).then(user => {
+        return db('user').where({ id }).del().then(count => {
+            return user;
+        });
+    });
 }
