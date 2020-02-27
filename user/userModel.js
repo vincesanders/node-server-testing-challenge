@@ -9,7 +9,7 @@ module.exports = {
 };
 
 async function insert(user) {
-    const [id] = await db('user').insert(user);
+    const [id] = await db('user', 'id').insert(user);
     return getById(id);
 }
 
