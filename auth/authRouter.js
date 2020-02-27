@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const users = require('../user/userModel');
 const generateToken = require('../utils/generateToken');
 
+//needs middleware to check req.body
 router.post('/register', (req, res) => {
     const { username, password, department } = req.body;
     let user = { username, password, department };
